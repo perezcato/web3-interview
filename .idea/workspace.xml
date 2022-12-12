@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="Support for ethereum in browser check">
-      <change afterPath="$PROJECT_DIR$/ui/src/components/button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/components/homeContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/components/login.tsx" afterDir="false" />
+    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="Login component and login feature with metamask fully implemented">
+      <change afterPath="$PROJECT_DIR$/ui/src/components/Roles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/components/role.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/deploy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/deploy.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/components/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/components/homeContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/homeContainer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -63,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1670788656570</updated>
       <workItem from="1670788657940" duration="6182000" />
-      <workItem from="1670817610798" duration="6001000" />
+      <workItem from="1670817610798" duration="20408000" />
     </task>
     <task id="LOCAL-00001" summary="project initialised for both ui and solidity">
       <created>1670816533345</created>
@@ -93,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670820834827</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Login component and login feature with metamask fully implemented">
+      <created>1670823910394</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670823910394</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,7 +159,8 @@
     <MESSAGE value="project initialised for both ui and solidity" />
     <MESSAGE value="tailwindcss added to project" />
     <MESSAGE value="Support for ethereum in browser check" />
-    <option name="LAST_COMMIT_MESSAGE" value="Support for ethereum in browser check" />
+    <MESSAGE value="Login component and login feature with metamask fully implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login component and login feature with metamask fully implemented" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
