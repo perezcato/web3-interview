@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="1. Move sections into components">
-      <change afterPath="$PROJECT_DIR$/.env.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="1. deployed contract to Georli testnet&#10;2. moved constants to an environment file">
+      <change afterPath="$PROJECT_DIR$/ui/src/components/modals/errorModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/components/modals/successModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hardhat.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hardhat.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/components/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/components/addRoleModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/addRoleModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ui/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TF_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ui/src/components/modals" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
@@ -49,6 +49,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ui/src/components/modals" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/contracts" />
     </key>
@@ -66,7 +67,8 @@
       <updated>1670788656570</updated>
       <workItem from="1670788657940" duration="6182000" />
       <workItem from="1670817610798" duration="21108000" />
-      <workItem from="1670922086875" duration="10396000" />
+      <workItem from="1670922086875" duration="12178000" />
+      <workItem from="1670941237910" duration="4082000" />
     </task>
     <task id="LOCAL-00001" summary="project initialised for both ui and solidity">
       <created>1670816533345</created>
@@ -159,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670935665053</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="1. deployed contract to Georli testnet&#10;2. moved constants to an environment file">
+      <created>1670937732095</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670937732095</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +231,8 @@
     <MESSAGE value="1. check if there are roles before you are allowed to add a user" />
     <MESSAGE value="check to make sure a valid address is entered" />
     <MESSAGE value="1. Move sections into components" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Move sections into components" />
+    <MESSAGE value="1. deployed contract to Georli testnet&#10;2. moved constants to an environment file" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. deployed contract to Georli testnet&#10;2. moved constants to an environment file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

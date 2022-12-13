@@ -9,6 +9,8 @@ import Roles from "./roles";
 import Members from "./members";
 import AddRoleModal from "./addRoleModal";
 import AddMemberModal from "./addMemberModal";
+import ErrorModal from "./modals/errorModal";
+import SuccessModal from "./modals/successModal";
 
 
 // const CONTRACT_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
@@ -26,7 +28,8 @@ const Dashboard = (props: Props) => {
   const [rolesCount, setRolesCount] = useState<number>(0)
   const [addRoleModel, setAddRoleModal] = useState<boolean>(false)
   const [addMemberModel, setAddMemberModal] = useState<boolean>(false)
-  const [roleInput, setRoleInput] = useState<string>()
+  const [error, setError] = useState<string>()
+  const [success, setSuccess] = useState<string>()
   const [rolesOnBlock, setRolesOnBlock] = useState<RoleType[]>([])
 
   const [membersCount, setMembersCount] = useState<number>(0)
@@ -85,48 +88,80 @@ const Dashboard = (props: Props) => {
     })()
 
   }, [membersCount])
+  const addRole = async (role: string) => {
 
-  const addRole = async () => {
-    if(roleInput && roleInput.length > 0 && props.signer && contract){
-      try{
-        await contract.addRoleType(roleInput)
-        setRolesOnBlock([...rolesOnBlock, {id: rolesOnBlock.length, role: roleInput}])
-        setRolesCount(rolesCount + 1)
-        setAddRoleModal(false)
-      } catch (e) {
-        console.error('Error adding roles:', e)
+    const checkRole = rolesOnBlock.find((roleOnBlock) => roleOnBlock.role.toLowerCase() === role?.toLowerCase() )
+
+    if(checkRole){
+      setAddRoleModal(false)
+      setError('Role already exists')
+    }else {
+      if(role && role.length > 0 && props.signer && contract){
+        try{
+          await contract.addRoleType(role)
+          setRolesOnBlock([...rolesOnBlock, {id: rolesOnBlock.length, role: role}])
+          setRolesCount(rolesCount + 1)
+          setAddRoleModal(false)
+          setSuccess('Adding Role was successful')
+        } catch (e) {
+          console.error('Error adding roles:', e)
+          setAddRoleModal(false)
+          setError('Error adding role, please try again later')
+        }
       }
     }
+
+
   }
 
   const addMemberWithRole = async () => {
 
     try {
 
-      let findRole;
+
+      let findRole: RoleType | undefined;
       if(selectedRole && selectedRole.length > 0)
         findRole = rolesOnBlock.find((roleFind) => +roleFind.id === +selectedRole )
 
-      if(address && address.length > 0 && ethers.utils.isAddress(address) && findRole && props.signer && contract){
-        await contract.addRole(address, selectedRole)
-        setMembers([...members, {address: address, roleType: findRole.role}])
-        setMembersCount(membersCount + 1)
+      const checkAddressAndRole = members.find((member) => member.address === address && member.roleType.toLowerCase() === findRole?.role.toLowerCase())
+
+      if(!findRole){
         setAddMemberModal(false)
+        setError("Invalid role selected")
+      }
+      else if(checkAddressAndRole) {
+        setAddMemberModal(false)
+        setError('Address with role already exists')
+      } else {
+        if(address && address.length > 0 && ethers.utils.isAddress(address) && props.signer && contract){
+          await contract.addRole(address, selectedRole)
+          setMembers([...members, {address: address, roleType: findRole.role}])
+          setMembersCount(membersCount + 1)
+          setAddMemberModal(false)
+          setSuccess('Adding Role to Address was successful')
+        } else {
+          setAddMemberModal(false)
+          setError('Error adding role to address, please check and try again')
+        }
       }
 
     } catch (e) {
       console.log('Error adding members:', e)
+      setAddMemberModal(false)
+      setError('Error adding role to address, please check and try again')
     }
   }
 
 
   return (
     <>
+      { error && <ErrorModal error={error} setError={setError} /> }
+      { success && <SuccessModal success={success} setSuccess={setSuccess} /> }
+
       {
         addRoleModel && (
           <AddRoleModal
             setAddRoleModal={setAddRoleModal}
-            setRoleInput={setRoleInput}
             addRole={addRole} />
         )
       }
