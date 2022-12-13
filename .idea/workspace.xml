@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="1. Create Role by owner&#10;2. Read Roles by owner">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/MemberRole.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/MemberRole.sol" afterDir="false" />
+    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="1. Assigning roles to address (done)&#10;2. Fetching Members with roles on chain (done)">
       <change beforePath="$PROJECT_DIR$/ui/src/components/Roles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/Roles.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +60,7 @@
       <updated>1670788656570</updated>
       <workItem from="1670788657940" duration="6182000" />
       <workItem from="1670817610798" duration="21108000" />
-      <workItem from="1670922086875" duration="3372000" />
+      <workItem from="1670922086875" duration="3816000" />
     </task>
     <task id="LOCAL-00001" summary="project initialised for both ui and solidity">
       <created>1670816533345</created>
@@ -106,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670849918388</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="1. Assigning roles to address (done)&#10;2. Fetching Members with roles on chain (done)">
+      <created>1670927382890</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670927382890</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +169,8 @@
     <MESSAGE value="Support for ethereum in browser check" />
     <MESSAGE value="Login component and login feature with metamask fully implemented" />
     <MESSAGE value="1. Create Role by owner&#10;2. Read Roles by owner" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Create Role by owner&#10;2. Read Roles by owner" />
+    <MESSAGE value="1. Assigning roles to address (done)&#10;2. Fetching Members with roles on chain (done)" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Assigning roles to address (done)&#10;2. Fetching Members with roles on chain (done)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

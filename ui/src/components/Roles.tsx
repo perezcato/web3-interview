@@ -104,22 +104,28 @@ const Roles = (props: Props) => {
         setRolesCount(rolesCount + 1)
         setAddRoleModal(false)
       } catch (e) {
-        console.error('Error adding roles: ', e)
+        console.error('Error adding roles:', e)
       }
     }
   }
 
   const addMemberWithRole = async () => {
 
-    let findRole;
-    if(selectedRole && selectedRole.length > 0)
-      findRole = rolesOnBlock.find((roleFind) => +roleFind.id === +selectedRole )
+    try {
 
-    if(address && address.length > 0 && findRole && props.signer && contract){
-      await contract.addRole(address, selectedRole)
-      setMembers([...members, {address: address, roleType: findRole.role}])
-      setMembersCount(membersCount + 1)
-      setAddMemberModal(false)
+      let findRole;
+      if(selectedRole && selectedRole.length > 0)
+        findRole = rolesOnBlock.find((roleFind) => +roleFind.id === +selectedRole )
+
+      if(address && address.length > 0 && findRole && props.signer && contract){
+        await contract.addRole(address, selectedRole)
+        setMembers([...members, {address: address, roleType: findRole.role}])
+        setMembersCount(membersCount + 1)
+        setAddMemberModal(false)
+      }
+
+    } catch (e) {
+      console.log('Error adding members:', e)
     }
   }
 
