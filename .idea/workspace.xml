@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="1. deployed contract to Georli testnet&#10;2. moved constants to an environment file">
-      <change afterPath="$PROJECT_DIR$/ui/src/components/modals/errorModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/components/modals/successModal.tsx" afterDir="false" />
+    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="1. Added Error and success modal when creating a new Role or assigning a role to an address">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/components/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/Dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/components/addRoleModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/addRoleModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ui/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +63,7 @@
       <workItem from="1670788657940" duration="6182000" />
       <workItem from="1670817610798" duration="21108000" />
       <workItem from="1670922086875" duration="12178000" />
-      <workItem from="1670941237910" duration="4082000" />
+      <workItem from="1670941237910" duration="4602000" />
     </task>
     <task id="LOCAL-00001" summary="project initialised for both ui and solidity">
       <created>1670816533345</created>
@@ -168,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670937732095</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="1. Added Error and success modal when creating a new Role or assigning a role to an address">
+      <created>1670955739213</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670955739213</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +234,8 @@
     <MESSAGE value="check to make sure a valid address is entered" />
     <MESSAGE value="1. Move sections into components" />
     <MESSAGE value="1. deployed contract to Georli testnet&#10;2. moved constants to an environment file" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. deployed contract to Georli testnet&#10;2. moved constants to an environment file" />
+    <MESSAGE value="1. Added Error and success modal when creating a new Role or assigning a role to an address" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Added Error and success modal when creating a new Role or assigning a role to an address" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
