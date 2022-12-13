@@ -35,4 +35,7 @@ ui/src/artifacts
 
 idea/*
 
+.env
+ui/.env
+
 

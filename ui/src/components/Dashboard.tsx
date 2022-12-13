@@ -11,7 +11,8 @@ import AddRoleModal from "./addRoleModal";
 import AddMemberModal from "./addMemberModal";
 
 
-const CONTRACT_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+// const CONTRACT_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
 
 interface Props {
   signer: ethers.Signer ,
@@ -20,7 +21,7 @@ interface Props {
 
 const Dashboard = (props: Props) => {
 
-  const contract = new ethers.Contract(CONTRACT_ADDRESS, MemberRole.abi, props.signer)
+  const contract = new ethers.Contract(CONTRACT_ADDRESS as string, MemberRole.abi, props.signer)
 
   const [rolesCount, setRolesCount] = useState<number>(0)
   const [addRoleModel, setAddRoleModal] = useState<boolean>(false)
