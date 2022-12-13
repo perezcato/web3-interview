@@ -4,6 +4,11 @@ import {ethers} from 'ethers'
 import MemberRole from '../artifacts/contracts/MemberRole.sol/MemberRole.json'
 import Button from "./button";
 import Role from "./role";
+import {MemberType, RoleType} from "../types";
+import Roles from "./roles";
+import Members from "./members";
+import AddRoleModal from "./addRoleModal";
+import AddMemberModal from "./addMemberModal";
 
 
 const CONTRACT_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
@@ -13,7 +18,7 @@ interface Props {
   account: string
 }
 
-const Roles = (props: Props) => {
+const Dashboard = (props: Props) => {
 
   const contract = new ethers.Contract(CONTRACT_ADDRESS, MemberRole.abi, props.signer)
 
@@ -21,10 +26,10 @@ const Roles = (props: Props) => {
   const [addRoleModel, setAddRoleModal] = useState<boolean>(false)
   const [addMemberModel, setAddMemberModal] = useState<boolean>(false)
   const [roleInput, setRoleInput] = useState<string>()
-  const [rolesOnBlock, setRolesOnBlock] = useState<{id: number, role: string}[]>([])
+  const [rolesOnBlock, setRolesOnBlock] = useState<RoleType[]>([])
 
   const [membersCount, setMembersCount] = useState<number>(0)
-  const [members, setMembers] = useState<{address: string, roleType: string}[]>([])
+  const [members, setMembers] = useState<MemberType[]>([])
 
   const [address, setAddress] = useState<string>()
   const [selectedRole, setSelectedRole] = useState<string>()
@@ -38,19 +43,15 @@ const Roles = (props: Props) => {
 
       const memberCount = await contract.membersCount()
       setMembersCount(+memberCount.toString())
-
-      console.log({memberCount: memberCount.toString()})
     })()
   }, [])
 
   useEffect(() => {
     (async () => {
       if(rolesCount > 0 && contract && rolesCount !== rolesOnBlock.length){
-        console.log('............. Getting roles .................')
         const tempRoles = []
         for(let i = 0; i < rolesCount; i ++){
           const roleOnBlock = await contract.roleTypes(i)
-          console.log('Role on block:', roleOnBlock)
           tempRoles.push({id: i, role: roleOnBlock})
         }
 
@@ -64,7 +65,7 @@ const Roles = (props: Props) => {
 
     (async () => {
       const tempMembers = []
-      const tempMembersWithRoles: {address: string, roleType: string}[] = []
+      const tempMembersWithRoles: MemberType[] = []
       if(membersCount > 0 && membersCount !== members.length ){
         for(let i = 0; i < membersCount; i ++){
           const address = await contract.addresses(i)
@@ -122,54 +123,22 @@ const Roles = (props: Props) => {
     <>
       {
         addRoleModel && (
-          <div className="w-screen h-screen bg-gray-900/[0.5] absolute top-0 left-0 flex justify-center py-28">
-            <div className="relative w-[400px] h-[200px] bg-white rounded-lg overflow-hidden p-6 space-y-3 flex flex-col justify-center">
-              <div
-                onClick={() => setAddRoleModal(false)}
-                className="cursor-pointer text-gray-900 rounded-full border border-gray-900 w-fit w-[22px] text-xs h-[22px] flex items-center justify-center font-bold absolute top-2 right-2">
-                X
-              </div>
-              <div className="border border-gray-200 px-3 py-2 rounded-lg bg-gray-200">
-                <input
-                  onChange={(e) => setRoleInput(e.target.value)}
-                  type="text"
-                  placeholder="Enter role"
-                  className="text-xs w-full h-full bg-transparent outline-none text-gray-900"/>
-              </div>
-              <button onClick={addRole} className=" text-xs bg-green-600 w-full py-3 text-white rounded-lg ">Add</button>
-            </div>
-          </div>
+          <AddRoleModal
+            setAddRoleModal={setAddRoleModal}
+            setRoleInput={setRoleInput}
+            addRole={addRole} />
         )
       }
 
       {
         addMemberModel && (
-          <div className="w-screen h-screen bg-gray-900/[0.5] absolute top-0 left-0 flex justify-center py-28">
-            <div className="relative w-[400px] h-[200px] bg-white rounded-lg overflow-hidden p-6 space-y-3 flex flex-col justify-center">
-              <div
-                onClick={() => setAddMemberModal(false)}
-                className="cursor-pointer text-gray-900 rounded-full border border-gray-900 w-fit w-[22px] text-xs h-[22px] flex items-center justify-center font-bold absolute top-2 right-2">
-                X
-              </div>
-              <div className="border border-gray-200 px-3 py-2 rounded-lg bg-gray-200">
-                <input
-                  onChange={(e) => setAddress(e.target.value)}
-                  type="text"
-                  placeholder="Enter Address"
-                  className="text-xs w-full h-full bg-transparent outline-none text-gray-900"/>
-              </div>
-              <div className="border border-gray-200 px-3 py-2 rounded-lg bg-gray-200">
-                <select
-                  onChange={(e) => setSelectedRole(e.target.value) }
-                  className="text-xs w-full h-full bg-transparent outline-none text-gray-900 cursor-pointer">
-                  {
-                    rolesOnBlock.map(({id, role}: {id: number, role: string}) => <option key={id} value={id}>{role.toUpperCase()}</option>)
-                  }
-                </select>
-              </div>
-              <button onClick={addMemberWithRole} className=" text-xs bg-green-600 w-full py-3 text-white rounded-lg ">Add</button>
-            </div>
-          </div>
+          <AddMemberModal
+            setAddMemberModal={setAddMemberModal}
+            setAddress={setAddress}
+            setSelectedRole={setSelectedRole}
+            roles={rolesOnBlock}
+            addMemberWithRole={addMemberWithRole}
+            />
         )
       }
 
@@ -177,54 +146,13 @@ const Roles = (props: Props) => {
         <div>
           {props.account}
         </div>
-        <div className="w-3/4 border border-gray-800 rounded-lg overflow-hidden h-fit min-h-[400px] flex flex-col">
-          <div className="flex justify-between px-3 py-4 bg-gray-800 items-center">
-            <div className="text-xs">Roles</div>
-            <div className="space-x-3">
-              <Button onClick={() => setAddRoleModal(true)} label={"Add Role"} />
-            </div>
-          </div>
 
-          <div className="flex-1 p-3 flex items-start justify-start wrap space-x-3">
-            { rolesCount > 0 && rolesOnBlock.map((role, id) => <Role key={id} role={role.role} />) }
-          </div>
-        </div>
-
-        <div className="w-3/4 border border-gray-800 rounded-lg overflow-hidden h-fit min-h-[400px] flex flex-col">
-          <div className="flex justify-between px-3 py-4 bg-gray-800 items-center">
-            <div className="text-xs">Members</div>
-            {
-              rolesCount > 0 && (
-                <div className="space-x-3">
-                  <Button onClick={() => setAddMemberModal(true)} label={"Add Member"} />
-                </div>
-              )
-            }
-
-          </div>
-
-          <div className="flex-1 p-3 flex flex-col items-start justify-start wrap space-y-3">
-
-            {
-              membersCount > 0 && members.length > 0 && members.map((member, key) => {
-                return (
-                  <div key={key} className="bg-gray-800 w-full text-xs py-3 px-4 rounded-md flex justify-between">
-                    <div>
-                      {member.address}
-                    </div>
-                    <div className="uppercase text-orange-400">
-                      {member.roleType}
-                    </div>
-                  </div>
-                )
-              })
-            }
-          </div>
-        </div>
+        <Roles roles={rolesOnBlock} count={rolesCount} setAddRoleModal={setAddRoleModal} />
+        <Members members={members} count={membersCount} roleCount={rolesCount} setAddMemberModal={setAddMemberModal} />
       </div>
     </>
 
   );
 };
 
-export default Roles;
+export default Dashboard;

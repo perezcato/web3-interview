@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="1. check if there are roles before you are allowed to add a user">
+    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="check to make sure a valid address is entered">
+      <change afterPath="$PROJECT_DIR$/ui/src/components/addMemberModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/components/addRoleModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/components/members.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/components/roles.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/types/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/components/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/Dashboard.tsx" afterDir="false" />
     </list>
@@ -61,7 +66,7 @@
       <updated>1670788656570</updated>
       <workItem from="1670788657940" duration="6182000" />
       <workItem from="1670817610798" duration="21108000" />
-      <workItem from="1670922086875" duration="5953000" />
+      <workItem from="1670922086875" duration="8461000" />
     </task>
     <task id="LOCAL-00001" summary="project initialised for both ui and solidity">
       <created>1670816533345</created>
@@ -140,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670932898084</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="check to make sure a valid address is entered">
+      <created>1670933000856</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670933000856</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +213,8 @@
     <MESSAGE value="1. Assigning roles to address (done)&#10;2. Fetching Members with roles on chain (done)" />
     <MESSAGE value="1. Dashboard component refactoring" />
     <MESSAGE value="1. check if there are roles before you are allowed to add a user" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. check if there are roles before you are allowed to add a user" />
+    <MESSAGE value="check to make sure a valid address is entered" />
+    <option name="LAST_COMMIT_MESSAGE" value="check to make sure a valid address is entered" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
