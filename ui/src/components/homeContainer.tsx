@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from "./login";
 import {ethers} from "ethers";
-import Roles from "./Roles";
+import Dashboard from "./Dashboard";
 
 const HomeContainer = () => {
 
@@ -13,7 +13,7 @@ const HomeContainer = () => {
     <div className="bg-gray-900 w-screen h-screen text-white">
       {
         account && signer ? (
-          <Roles
+          <Dashboard
             account={account}
             signer={signer}
           />

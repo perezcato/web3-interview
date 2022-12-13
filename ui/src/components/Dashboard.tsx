@@ -1,28 +1,22 @@
 import React, {useEffect, useState} from 'react';
+import {ethers} from 'ethers'
+
+import MemberRole from '../artifacts/contracts/MemberRole.sol/MemberRole.json'
 import Button from "./button";
 import Role from "./role";
-import {ethers} from "ethers";
-import MemberRole from '../artifacts/contracts/MemberRole.sol/MemberRole.json'
-import {Simulate} from "react-dom/test-utils";
-import seeked = Simulate.seeked;
 
 
 const CONTRACT_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 
-// const ROLES = ['admin', 'guest', 'user']
-// const MEMBERS = [
-//   '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
-//   '0x5fbdb2315678afecb367f032d93f642f64180aa3'
-// ]
-
-interface Props{
-  account: string;
-  signer: ethers.Signer
+interface Props {
+  signer: ethers.Signer ,
+  account: string
 }
 
 const Roles = (props: Props) => {
 
-  const contract = new ethers.Contract(CONTRACT_ADDRESS, MemberRole.abi, props.signer);
+  const contract = new ethers.Contract(CONTRACT_ADDRESS, MemberRole.abi, props.signer)
+
   const [rolesCount, setRolesCount] = useState<number>(0)
   const [addRoleModel, setAddRoleModal] = useState<boolean>(false)
   const [addMemberModel, setAddMemberModal] = useState<boolean>(false)
@@ -98,7 +92,6 @@ const Roles = (props: Props) => {
   const addRole = async () => {
     if(roleInput && roleInput.length > 0 && props.signer && contract){
       try{
-        console.log('adding Role', roleInput)
         await contract.addRoleType(roleInput)
         setRolesOnBlock([...rolesOnBlock, {id: rolesOnBlock.length, role: roleInput}])
         setRolesCount(rolesCount + 1)
@@ -199,33 +192,6 @@ const Roles = (props: Props) => {
 
           <div className="flex-1 p-3 flex items-start justify-start wrap space-x-3">
             { rolesCount > 0 && rolesOnBlock.map((role, id) => <Role key={id} role={role.role} />) }
-          </div>
-        </div>
-
-        <div className="w-3/4 border border-gray-800 rounded-lg overflow-hidden h-fit min-h-[400px] flex flex-col">
-          <div className="flex justify-between px-3 py-4 bg-gray-800 items-center">
-            <div className="text-xs">Members</div>
-            <div className="space-x-3">
-              <Button onClick={() => setAddMemberModal(true)} label={"Add Member"} />
-            </div>
-          </div>
-
-          <div className="flex-1 p-3 flex flex-col items-start justify-start wrap space-y-3">
-
-              {
-                membersCount > 0 && members.length > 0 && members.map((member, key) => {
-                  return (
-                    <div key={key} className="bg-gray-800 w-full text-xs py-3 px-4 rounded-md flex justify-between">
-                      <div>
-                        {member.address}
-                      </div>
-                      <div className="uppercase text-orange-400">
-                        {member.roleType}
-                      </div>
-                    </div>
-                  )
-                })
-              }
           </div>
         </div>
       </div>

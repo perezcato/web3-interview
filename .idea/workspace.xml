@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="1. Assigning roles to address (done)&#10;2. Fetching Members with roles on chain (done)">
+      <change afterPath="$PROJECT_DIR$/ui/src/components/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/components/Roles.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/Roles.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/components/homeContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/homeContainer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -60,7 +63,7 @@
       <updated>1670788656570</updated>
       <workItem from="1670788657940" duration="6182000" />
       <workItem from="1670817610798" duration="21108000" />
-      <workItem from="1670922086875" duration="3816000" />
+      <workItem from="1670922086875" duration="5463000" />
     </task>
     <task id="LOCAL-00001" summary="project initialised for both ui and solidity">
       <created>1670816533345</created>
@@ -111,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670927382890</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1. Assigning roles to address (done)&#10;2. Fetching Members with roles on chain (done)">
+      <created>1670927538499</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670927538499</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
