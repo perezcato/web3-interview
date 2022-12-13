@@ -3,15 +3,17 @@ import Button from "./button";
 import Role from "./role";
 import {ethers} from "ethers";
 import MemberRole from '../artifacts/contracts/MemberRole.sol/MemberRole.json'
+import {Simulate} from "react-dom/test-utils";
+import seeked = Simulate.seeked;
 
 
 const CONTRACT_ADDRESS = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 
-const ROLES = ['admin', 'guest', 'user']
-const MEMBERS = [
-  '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
-  '0x5fbdb2315678afecb367f032d93f642f64180aa3'
-]
+// const ROLES = ['admin', 'guest', 'user']
+// const MEMBERS = [
+//   '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
+//   '0x5fbdb2315678afecb367f032d93f642f64180aa3'
+// ]
 
 interface Props{
   account: string;
@@ -20,7 +22,7 @@ interface Props{
 
 const Roles = (props: Props) => {
 
-  const [contract, setContract] = useState<ethers.Contract>(new ethers.Contract(CONTRACT_ADDRESS, MemberRole.abi, props.signer));
+  const contract = new ethers.Contract(CONTRACT_ADDRESS, MemberRole.abi, props.signer);
   const [rolesCount, setRolesCount] = useState<number>(0)
   const [addRoleModel, setAddRoleModal] = useState<boolean>(false)
   const [addMemberModel, setAddMemberModal] = useState<boolean>(false)
@@ -39,13 +41,11 @@ const Roles = (props: Props) => {
     (async () => {
       const memberRolesCount = await contract.roleTypesCount()
       setRolesCount(+memberRolesCount.toString())
-    })()
-  }, [])
 
-  useEffect(() => {
-    (async () => {
       const memberCount = await contract.membersCount()
       setMembersCount(+memberCount.toString())
+
+      console.log({memberCount: memberCount.toString()})
     })()
   }, [])
 
@@ -64,31 +64,36 @@ const Roles = (props: Props) => {
       }
     }) ()
 
-  }, [rolesCount, contract])
+  }, [rolesCount])
 
   useEffect(() => {
+
     (async () => {
       const tempMembers = []
       const tempMembersWithRoles: {address: string, roleType: string}[] = []
-      if(membersCount > 0){
+      if(membersCount > 0 && membersCount !== members.length ){
         for(let i = 0; i < membersCount; i ++){
           const address = await contract.addresses(i)
           tempMembers.push(address)
         }
-      }
-      for(let i of tempMembers){
-        const addressRole = await contract.userRole(i);
-        tempMembersWithRoles.push({
-          address: i,
-          roleType: addressRole.roleType
-        })
+
+        for(let i of tempMembers){
+          const addressRole = await contract.userRole(i);
+          tempMembersWithRoles.push({
+            address: i,
+            roleType: addressRole.roleType
+          })
+        }
+
+        setMembers(tempMembersWithRoles)
       }
 
-      setMembers(tempMembersWithRoles)
+
+
 
     })()
 
-  }, [membersCount, contract])
+  }, [membersCount])
 
   const addRole = async () => {
     if(roleInput && roleInput.length > 0 && props.signer && contract){
@@ -105,8 +110,16 @@ const Roles = (props: Props) => {
   }
 
   const addMemberWithRole = async () => {
-    if(address && address.length > 0 && selectedRole && selectedRole.length > 0 && props.signer && contract){
+
+    let findRole;
+    if(selectedRole && selectedRole.length > 0)
+      findRole = rolesOnBlock.find((roleFind) => +roleFind.id === +selectedRole )
+
+    if(address && address.length > 0 && findRole && props.signer && contract){
       await contract.addRole(address, selectedRole)
+      setMembers([...members, {address: address, roleType: findRole.role}])
+      setMembersCount(membersCount + 1)
+      setAddMemberModal(false)
     }
   }
 
@@ -191,24 +204,22 @@ const Roles = (props: Props) => {
             </div>
           </div>
 
-          <div className="flex-1 p-3 flex items-start justify-start wrap space-x-3">
-            <div className="bg-gray-800 w-full text-xs py-3 px-4 rounded-md flex justify-between">
+          <div className="flex-1 p-3 flex flex-col items-start justify-start wrap space-y-3">
+
               {
-                membersCount > 0 && members.length > 0 && members.map((member) => {
+                membersCount > 0 && members.length > 0 && members.map((member, key) => {
                   return (
-                    <>
+                    <div key={key} className="bg-gray-800 w-full text-xs py-3 px-4 rounded-md flex justify-between">
                       <div>
                         {member.address}
                       </div>
                       <div className="uppercase text-orange-400">
                         {member.roleType}
                       </div>
-                    </>
+                    </div>
                   )
                 })
               }
-
-            </div>
           </div>
         </div>
       </div>
