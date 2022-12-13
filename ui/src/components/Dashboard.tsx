@@ -78,13 +78,8 @@ const Roles = (props: Props) => {
             roleType: addressRole.roleType
           })
         }
-
         setMembers(tempMembersWithRoles)
       }
-
-
-
-
     })()
 
   }, [membersCount])
@@ -110,7 +105,7 @@ const Roles = (props: Props) => {
       if(selectedRole && selectedRole.length > 0)
         findRole = rolesOnBlock.find((roleFind) => +roleFind.id === +selectedRole )
 
-      if(address && address.length > 0 && findRole && props.signer && contract){
+      if(address && address.length > 0 && ethers.utils.isAddress(address) && findRole && props.signer && contract){
         await contract.addRole(address, selectedRole)
         setMembers([...members, {address: address, roleType: findRole.role}])
         setMembersCount(membersCount + 1)
