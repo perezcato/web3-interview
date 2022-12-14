@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {RoleType} from "../types";
 
 interface Props {
@@ -10,6 +10,12 @@ interface Props {
 }
 
 const AddMemberModal = (props: Props) => {
+
+  useEffect(() => {
+    if(props.roles && props.roles.length > 0) props.setSelectedRole(props.roles[0].id.toString())
+  }, [])
+
+
   return (
     <div className="w-screen h-screen bg-gray-900/[0.5] absolute top-0 left-0 flex justify-center py-28">
       <div className="relative w-[400px] h-[200px] bg-white rounded-lg overflow-hidden p-6 space-y-3 flex flex-col justify-center">
