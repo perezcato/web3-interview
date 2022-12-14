@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="added the artifacts when deploying">
+    <list default="true" id="9d77f9bd-6d03-4846-8417-1638172c8003" name="Changes" comment="persist web3 connection">
+      <change afterPath="$PROJECT_DIR$/ui/src/setupTests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/tests/app.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/components/homeContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/homeContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/components/members.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/members.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/components/role.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/role.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ui/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -63,7 +68,7 @@
       <workItem from="1670788657940" duration="6182000" />
       <workItem from="1670817610798" duration="21108000" />
       <workItem from="1670922086875" duration="12178000" />
-      <workItem from="1670941237910" duration="5697000" />
+      <workItem from="1670941237910" duration="12041000" />
     </task>
     <task id="LOCAL-00001" summary="project initialised for both ui and solidity">
       <created>1670816533345</created>
@@ -177,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670956255588</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="persist web3 connection">
+      <created>1670957767872</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1670957767872</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,7 +255,8 @@
     <MESSAGE value="1. deployed contract to Georli testnet&#10;2. moved constants to an environment file" />
     <MESSAGE value="1. Added Error and success modal when creating a new Role or assigning a role to an address" />
     <MESSAGE value="added the artifacts when deploying" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the artifacts when deploying" />
+    <MESSAGE value="persist web3 connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="persist web3 connection" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

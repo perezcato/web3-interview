@@ -11,11 +11,11 @@ declare global {
 
 function App() {
 
-  const [web3Support, setWeb3Support] = React.useState<boolean>(true)
+  const [web3Support, setWeb3Support] = React.useState<boolean>(false)
 
   useEffect(() => {
-    if(!window.ethereum){
-      setWeb3Support(false)
+    if(window.ethereum){
+      setWeb3Support(true)
     }
   }, [])
 

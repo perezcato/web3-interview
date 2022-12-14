@@ -29,7 +29,7 @@ const Members = (props: Props) => {
         {
           props.count > 0 && props.members.length > 0 && props.members.map((member, key) => {
             return (
-              <div key={key} className="bg-gray-800 w-full text-xs py-3 px-4 rounded-md flex justify-between">
+              <div data-testid="member" key={key} className="bg-gray-800 w-full text-xs py-3 px-4 rounded-md flex justify-between">
                 <div>
                   {member.address}
                 </div>
