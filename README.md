@@ -2,6 +2,9 @@
 ## Demo
 https://web3-frontend-interview.netlify.app/
 
+## Loom video
+
+https://www.loom.com/share/1edcafe79473468db90952e29037d3a4
 
 
 ## Run Locally
